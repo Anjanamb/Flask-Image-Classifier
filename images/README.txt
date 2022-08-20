@@ -1,1 +1,1 @@
-images will be save in this foleder.
+images will be saved in this folder.
