@@ -8,8 +8,6 @@ from tensorflow.keras.applications.mobilenet_v2 import decode_predictions
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 
 app = Flask(__name__)
-# model = VGG19
-
 
 @app.route('/' ,methods = ['GET'])
 def home():
