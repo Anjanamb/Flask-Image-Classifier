@@ -1,88 +1,56 @@
-# Flask-Image-Classifier
+# Flask Image Classifier
 
->A simple **Flask web app** for real-time **image classification** using a pretrained **MobileNetV2** deep learning model (ImageNet weights).  
+> Flask web app for real-time image classification using a pretrained **MobileNetV2** (ImageNet weights). Upload an image, get the top class with confidence.
 
->Users can upload an image through the web interface, and the app predicts the most likely class with confidence.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 ---
 
 ## Features
 
-- Upload any image via the web interface
-- Real-time classification using **MobileNetV2**
-- Displays predicted label with confidence percentage
-- Web UI styled with **Bootstrap**
-- Easy to run locally
+- Upload any image via a Bootstrap-styled web form
+- Real-time classification using MobileNetV2 pretrained on ImageNet (1000 classes)
+- Predicted label + confidence percentage
 
----
+## Project structure
 
-## Project Structure
 ```
 Flask-Image-Classifier/
-├── app.py # Flask application
+├── app.py                # Flask application
 ├── templates/
-│ └── index.html # Frontend (Bootstrap upload form)
-└── images/ # Uploaded images (auto-saved here)
+│   └── index.html        # Bootstrap upload form
+└── images/               # Uploaded images (auto-saved)
 ```
 
----
+## Quickstart
 
-## Requirements
-
-- Python **3.8+**
-- Install dependencies:
-  ```bash
-  pip install flask tensorflow
-
----
-
-## Usage
-
-### 1. Clone the repo
 ```bash
 git clone https://github.com/Anjanamb/Flask-Image-Classifier.git
 cd Flask-Image-Classifier
-```
-
-### 2. Run the Flask app
-```bash
+pip install flask tensorflow
 python app.py
 ```
 
-### 3. Open in browser
-```bash
-http://127.0.0.1:3000/
+Open `http://127.0.0.1:3000/`, upload an image, click **Predict Image**.
+
+## How it works
+
+The uploaded image is resized to 224×224, preprocessed for MobileNetV2, and decoded with `decode_predictions`. Example output:
+
 ```
-
-### 4. Upload an image
-- Select an image file.
-- Click Predict Image.
-- The prediction and confidence will be displayed.
-
----
-
-## Model Details
-- Uses MobileNetV2 pretrained on ImageNet (1000 classes).
-- Image is resized to 224x224, preprocessed, and fed to the model.
-- Output is decoded using decode_predictions.
-
-Example prediction output:
-```java
 Labrador retriever (95.23%)
 ```
----
 
-## Future Improvements
-- Support for multiple top predictions
-- Display uploaded image alongside prediction
-- Add Docker support for easier deployment
-- Deploy on cloud (Heroku, AWS, etc.)
-- Option to fine-tune MobileNetV2 with custom dataset
+## Roadmap
 
----
+- [ ] Top-K predictions (not just top-1)
+- [ ] Display the uploaded image alongside the prediction
+- [ ] Dockerfile
+- [ ] Fine-tuning script for custom datasets
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
+[MIT](LICENSE) — see [anjanamb.github.io](https://anjanamb.github.io/) for more projects.
